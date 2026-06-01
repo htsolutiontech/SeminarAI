@@ -610,7 +610,161 @@
     .contact-box strong { display: block; margin-bottom: 6px; }
     .contact-box a { color: white; font-weight: 800; }
 
+    /* ===== Cảm nhận khách mời ===== */
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .feedback-card {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(150deg, rgba(255,255,255,.98), rgba(238,246,251,.92));
+      box-shadow: var(--shadow-soft);
+      padding: 26px;
+      overflow: hidden;
+    }
+
+    .feedback-card::before {
+      content: "\201C";
+      position: absolute;
+      top: -18px;
+      right: 18px;
+      font-size: 130px;
+      line-height: 1;
+      font-weight: 900;
+      color: rgba(15, 76, 129, .08);
+      pointer-events: none;
+    }
+
+    .fb-author {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .fb-avatar {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: white;
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 10px 24px rgba(15, 76, 129, .22);
+    }
+
+    .fb-avatar.green { background: linear-gradient(135deg, var(--teal), var(--green)); }
+
+    .fb-author .meta strong {
+      display: block;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .fb-author .meta span {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .fb-text {
+      position: relative;
+      z-index: 2;
+      color: #243d54;
+      font-size: 15.5px;
+    }
+
+    .fb-text p { margin: 0 0 12px; }
+    .fb-text p:last-child { margin-bottom: 0; }
+    .fb-text .accent { color: var(--primary); font-weight: 800; }
+
+    .fb-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 4px;
+    }
+
+    .fb-tag {
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 850;
+      color: var(--primary);
+      background: rgba(15, 76, 129, .08);
+    }
+
+    .fb-source {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 850;
+      color: var(--primary-2);
+    }
+
+    .fb-source:hover { text-decoration: underline; }
+
+    .fb-shots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .fb-shot {
+      border: 1px solid rgba(15, 76, 129, .14);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 12px 28px rgba(15, 76, 129, .10);
+    }
+
+    .fb-shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .fb-shot-cap {
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 750;
+      color: var(--muted);
+      border-top: 1px solid rgba(15, 76, 129, .08);
+      background: rgba(238,246,251,.6);
+    }
+
+    .fb-placeholder {
+      margin: 14px 0 0;
+      padding: 14px 16px;
+      border: 1px dashed rgba(15, 76, 129, .35);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.6);
+      color: var(--muted);
+      font-size: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
     @media (max-width: 980px) {
+      .feedback-grid { grid-template-columns: 1fr; }
       .topbar-inner { align-items: flex-start; padding: 14px 0; flex-direction: column; }
       nav { justify-content: flex-start; }
       .hero-grid, .qr-section, .footer-grid { grid-template-columns: 1fr; }
@@ -652,6 +806,7 @@
         <a href="#overview">Tổng quan</a>
         <a href="#agenda">Chương trình</a>
         <a href="#speakers">Diễn giả</a>
+        <a href="#feedback">Cảm nhận</a>
         <a href="#register">Đăng ký</a>
       </nav>
     </div>
@@ -870,6 +1025,78 @@
            </a>
 
             </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Cảm nhận khách mời</div>
+          <h2>Khách mời nói gì sau seminar</h2>
+          <p>Những chia sẻ chân thành của khách mời tham dự — góc nhìn về dữ liệu, đạo đức công nghệ và vai trò con người trong hành trình ứng dụng AI vào y tế.</p>
+        </div>
+
+        <div class="feedback-grid">
+          <!-- Cảm nhận 1: Nhat Nguyen (kèm 2 ảnh bình luận gốc) -->
+          <article class="feedback-card">
+            <div class="fb-author">
+              <div class="fb-avatar">NN</div>
+              <div class="meta">
+                <strong>Nhat Nguyen</strong>
+                <span>Khách mời tham dự · Giải pháp ngành Beauty</span>
+              </div>
+            </div>
+
+            <div class="fb-text">
+              <p>Ngồi nghe các chuyên gia chia sẻ, mình nhận ra rằng điều ngành y tế cần không hẳn là AI trước tiên, mà là <span class="accent">dữ liệu đúng - đủ - sạch - sống</span>. Khám bệnh đôi khi chỉ là một điểm chạm ngắn trong hành trình sức khỏe của một con người, trong khi khoảng trống lớn lại nằm ở giai đoạn sau thăm khám.</p>
+              <p>Càng nghe, mình càng thấy đây không đơn thuần là một dự án CNTT. Y tế là nơi giao thoa giữa cơ thể con người, tâm lý, cảm xúc, niềm tin và văn hóa sử dụng. Câu chuyện không chỉ nằm ở công nghệ hay mô hình AI, mà còn ở cách quản trị dữ liệu và lựa chọn những giải pháp nền tảng đủ bền vững để phát triển lâu dài.</p>
+              <p>Điều mình tâm đắc nhất sau sự kiện lại không nằm ở AI mà nằm ở con người. Công nghệ có thể hỗ trợ chúng ta hiểu cơ thể tốt hơn, nhưng <span class="accent">không thể thay thế trách nhiệm chăm sóc cơ thể đó</span>.</p>
+            </div>
+
+            <div class="fb-tags">
+              <span class="fb-tag">Dữ liệu đúng - đủ - sạch - sống</span>
+              <span class="fb-tag">Yếu tố con người</span>
+              <span class="fb-tag">Phát triển bền vững</span>
+            </div>
+
+            <div class="fb-shots">
+              <figure class="fb-shot" style="margin:0;">
+                <img src="feedback-nhat-1.jpg" alt="Bình luận của khách mời Nhat Nguyen - phần 1" loading="lazy" />
+                <figcaption class="fb-shot-cap">Bình luận gốc · phần 1</figcaption>
+              </figure>
+              <figure class="fb-shot" style="margin:0;">
+                <img src="feedback-nhat-2.jpg" alt="Bình luận của khách mời Nhat Nguyen - phần 2" loading="lazy" />
+                <figcaption class="fb-shot-cap">Bình luận gốc · phần 2</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <!-- Cảm nhận 2: Le & Partners (nguồn LinkedIn) -->
+          <article class="feedback-card">
+            <div class="fb-author">
+              <div class="fb-avatar green">L&amp;P</div>
+              <div class="meta">
+                <strong>Le &amp; Partners JSC</strong>
+                <span>Đối tác · Chia sẻ trên LinkedIn</span>
+              </div>
+            </div>
+
+            <div class="fb-tags" style="margin-top:0;">
+              <span class="fb-tag">Responsible AI</span>
+              <span class="fb-tag">AI in Healthcare</span>
+            </div>
+
+            <p class="fb-placeholder">
+        <strong>Le & Partners was honored to join the discussion, contributing perspectives on the opportunities, challenges, and principles required for AI to be applied effectively, safely, and responsibly across the healthcare system.
+One key message emphasized during the seminar was clear: Vietnam hospitals need a governance framework for AI in healthcare.</strong>
+
+            </p>
+
+            <a class="fb-source" href="https://www.linkedin.com/posts/le-partners-jsc_leandpartners-responsibleai-aiinhealthcare-activity-7467059515608313856-pWCc/" target="_blank" rel="noopener">
+              🔗 Xem bài viết gốc trên LinkedIn
+            </a>
           </article>
         </div>
       </div>
